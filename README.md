@@ -1,10 +1,20 @@
-# Website Zainal Arifin
+# zainal-front
 
+## Build Setup
 
+```bash
+# install dependencies
+$ yarn install
 
-##### The project was forked from https://github.com/tailwindtoolbox/Profile-Card.git
+# serve with hot reload at localhost:3000
+$ yarn dev
 
+# build for production and launch server
+$ yarn build
+$ yarn start
 
-## Copyright and License
+# generate static project
+$ yarn generate
+```
 
-Copyright 2018-2019 Astrava.Solutions Ltd. Code released under the MIT license.
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
