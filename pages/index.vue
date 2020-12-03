@@ -73,7 +73,7 @@
               class="link"
               href="https://twitter.com/zainalarifin_id"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener"
               data-tippy-content="@zainalarifin_id"
               ><svg
                 class="h-6 fill-current text-gray-600 hover:text-teal-700"
@@ -91,7 +91,7 @@
               class="link"
               href="https://github.com/zainalarifinid"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener"
               data-tippy-content="@zainalarifinid"
               ><svg
                 class="h-6 fill-current text-gray-600 hover:text-teal-700"
@@ -109,7 +109,7 @@
               class="link"
               href="https://instagram.com/zainalarifin.id"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener"
               data-tippy-content="@zainalarifin.id"
               ><svg
                 class="h-6 fill-current text-gray-600 hover:text-teal-700"
@@ -127,7 +127,7 @@
               class="link"
               href="https://www.youtube.com/channel/UCXiJ1SE_VtMy8daTEexMmVQ"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener"
               data-tippy-content="Zainal Arifin"
               ><svg
                 class="h-6 fill-current text-gray-600 hover:text-teal-700"
