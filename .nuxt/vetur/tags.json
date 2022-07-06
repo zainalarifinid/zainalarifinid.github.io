@@ -1,8 +1,44 @@
 {
+  "ContainerProfile": {
+    "description": "Auto imported from components/ContainerProfile.vue"
+  },
+  "LazyContainerProfile": {
+    "description": "Auto imported from components/ContainerProfile.vue"
+  },
+  "DarkModeSwitcher": {
+    "description": "Auto imported from components/DarkModeSwitcher.vue"
+  },
+  "LazyDarkModeSwitcher": {
+    "description": "Auto imported from components/DarkModeSwitcher.vue"
+  },
+  "Description": {
+    "description": "Auto imported from components/Description.vue"
+  },
+  "LazyDescription": {
+    "description": "Auto imported from components/Description.vue"
+  },
   "Logo": {
     "description": "Auto imported from components/Logo.vue"
   },
   "LazyLogo": {
     "description": "Auto imported from components/Logo.vue"
+  },
+  "MailMe": {
+    "description": "Auto imported from components/MailMe.vue"
+  },
+  "LazyMailMe": {
+    "description": "Auto imported from components/MailMe.vue"
+  },
+  "SocialMedia": {
+    "description": "Auto imported from components/SocialMedia.vue"
+  },
+  "LazySocialMedia": {
+    "description": "Auto imported from components/SocialMedia.vue"
+  },
+  "SquareImageProfile": {
+    "description": "Auto imported from components/SquareImageProfile.vue"
+  },
+  "LazySquareImageProfile": {
+    "description": "Auto imported from components/SquareImageProfile.vue"
   }
 }
