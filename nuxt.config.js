@@ -12,7 +12,7 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          'Hi! My name is Zainal Arifin, i am Software Developer from Indonesia',
+          'Hi! My name is Zainal Arifin, I am Software Developer from Indonesia',
       },
       {
         hid: 'keywords',
