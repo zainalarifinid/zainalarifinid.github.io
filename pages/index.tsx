@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -8,10 +6,11 @@ export default function Home() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const changeTheme = () => {
-    setIsDarkTheme(!isDarkTheme);
+    setIsDarkTheme(prev => !prev);
   };
 
   const iconTheme = isDarkTheme ? '☀️' : '🌙';
+  const backgroundImage = isDarkTheme ? '/bg/jochen-buckers-tIsz0EbqZHc-unsplash.jpg' : '/bg/rosie-fraser-1L71sPT5XKc-unsplash.jpg';
 
   return (
     <>
@@ -22,15 +21,46 @@ export default function Home() {
         <meta name="author" content="Zainal Arifin, S.Kom" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+
+        {/* Focused LCP Optimization - Only critical images */}
+        <link
+          rel="preload"
+          as="image"
+          href="/main/profile.jpeg"
+          media="(min-width: 1024px)"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/main/profile_mobile.jpeg"
+          media="(max-width: 1023px)"
+        />
+
+        {/* DNS prefetch for external resources */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+
+        {/* Optimize rendering */}
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="color-scheme" content="light dark" />
       </Head>
 
-      <div
-        className={`font-sans antialiased leading-normal tracking-wider bg-cover py-40 lg:py-0 ${
-          isDarkTheme
-            ? 'dark-bg-image text-gray-100'
-            : 'light-bg-image text-gray-900'
-        }`}
-      >
+      <div className="relative font-sans antialiased leading-normal tracking-wider py-40 lg:py-0">
+        {/* Background Image - Restored with optimized loading */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={backgroundImage}
+            alt=""
+            fill
+            className="object-cover"
+            loading="lazy"
+            sizes="100vw"
+            quality={75}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABQAAAAAAAAAAAAAAAAAAAAv/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AVAAAA//Z"
+          />
+        </div>
+
+        <div className={`relative z-10 ${isDarkTheme ? 'text-gray-100' : 'text-gray-900'}`}>
         <div className="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto lg:my-0">
           {/* Main Col */}
           <div
@@ -41,7 +71,20 @@ export default function Home() {
           >
             <div className="p-4 md:p-12 text-center lg:text-left">
               {/* Image for mobile view */}
-              <div className="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center mobile-profile-image"></div>
+              <div className="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 overflow-hidden">
+                <Image
+                  src="/main/profile_mobile.jpeg"
+                  alt="Zainal Arifin"
+                  width={192}
+                  height={192}
+                  className="w-full h-full object-cover"
+                  priority
+                  sizes="(max-width: 1024px) 192px, 0px"
+                  quality={100}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAwADADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA//9k="
+                />
+              </div>
 
               <h1 className="text-3xl font-bold pt-8 lg:pt-0">Zainal Arifin</h1>
               <div className="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-teal-500 opacity-25"></div>
@@ -154,16 +197,20 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Img Col */}
+          {/* Img Col - Critical LCP element for desktop */}
           <div className="w-full lg:w-2/5 lg:h-3/5">
-            {/* Big profile image for side bar (desktop) */}
+            {/* Big profile image for side bar (desktop) - LCP Critical Path */}
             <Image
               src="/main/profile.jpeg"
               className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
               alt="Zainal Arifin"
-              width={300}
-              height={350}
+              width={400}
+              height={600}
               priority
+              sizes="(max-width: 1024px) 0px, 400px"
+              quality={100}
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAA4ACgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA//9k="
             />
           </div>
 
@@ -173,6 +220,7 @@ export default function Home() {
               {iconTheme}
             </button>
           </div>
+        </div>
         </div>
       </div>
     </>
