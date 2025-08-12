@@ -2,21 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom styles */
-.dark-bg-image {
-  background-image: url('/bg/jochen-buckers-tIsz0EbqZHc-unsplash.jpg');
+/* Critical performance optimizations for 100/100 Lighthouse score */
+html {
+  font-display: swap;
 }
 
-.light-bg-image {
-  background-image: url('/bg/rosie-fraser-1L71sPT5XKc-unsplash.jpg');
+/* Image optimizations */
+img {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 400px;
 }
 
-.mobile-profile-image {
-  background-image: url('/main/profile_mobile.jpeg');
+/* Hardware acceleration for smooth performance */
+.image-container {
+  transform: translateZ(0);
+  will-change: transform;
 }
 
-@media (min-width: 1024px) {
-  .mobile-profile-image {
-    background-image: url('/main/profile.jpeg');
+/* Prevent layout shift with aspect ratio containers */
+.aspect-ratio-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+}
+
+/* Optimize button interactions */
+button {
+  touch-action: manipulation;
+}
+
+/* Critical path rendering optimization */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
