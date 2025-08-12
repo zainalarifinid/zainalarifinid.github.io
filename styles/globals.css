@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+.dark-bg-image {
+  background-image: url('/bg/jochen-buckers-tIsz0EbqZHc-unsplash.jpg');
+}
+
+.light-bg-image {
+  background-image: url('/bg/rosie-fraser-1L71sPT5XKc-unsplash.jpg');
+}
+
+.mobile-profile-image {
+  background-image: url('/main/profile_mobile.jpeg');
+}
+
+@media (min-width: 1024px) {
+  .mobile-profile-image {
+    background-image: url('/main/profile.jpeg');
+  }
+}

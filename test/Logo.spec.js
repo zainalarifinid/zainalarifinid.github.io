@@ -1,9 +1,11 @@
-import { mount } from '@vue/test-utils'
-import Logo from '@/components/Logo.vue'
+import { render } from '@testing-library/react';
+import Logo from '@/components/Logo';
+import '@testing-library/jest-dom';
 
 describe('Logo', () => {
-  test('is a Vue instance', () => {
-    const wrapper = mount(Logo)
-    expect(wrapper.vm).toBeTruthy()
-  })
-})
+  test('renders correctly', () => {
+    const { container } = render(<Logo />);
+    expect(container.firstChild).toBeTruthy();
+    expect(container.querySelector('svg')).toBeInTheDocument();
+  });
+});
