@@ -6,17 +6,14 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  // Performance optimizations
-  swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   // Compression
   compress: true,
-  // Webpack optimizations
+  // Turbopack config (Next.js 16 default)
+  turbopack: {},
+  // Webpack optimizations (used during production build)
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
       // Minify and optimize bundle
