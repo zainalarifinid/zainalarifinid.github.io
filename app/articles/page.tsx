@@ -1,6 +1,24 @@
+import type { Metadata } from 'next'
 import { FileText } from 'lucide-react'
 import Link from 'next/link'
 import { getAllArticles } from '../../utils/content'
+
+export const metadata: Metadata = {
+  title: 'Articles',
+  description: 'Thoughts on software development, technology trends, and lessons learned from building web and mobile applications.',
+  alternates: { canonical: '/articles' },
+  openGraph: {
+    title: 'Articles & Insights by Zainal Arifin',
+    description: 'Thoughts on software development, technology trends, and lessons learned from building applications.',
+    url: '/articles',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Articles & Insights by Zainal Arifin',
+    description: 'Thoughts on software development, technology trends, and lessons learned from building applications.',
+  },
+}
 
 export default async function ArticlesPage() {
   const articles = await getAllArticles()

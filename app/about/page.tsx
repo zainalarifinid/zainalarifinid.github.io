@@ -1,4 +1,25 @@
+import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Briefcase, Code, GraduationCap, MapPin, Users } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'About',
+  description: 'Engineering Manager & Senior Full-Stack Developer with 10+ years of experience. Learn about my background, skills, and professional journey.',
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'About Zainal Arifin',
+    description: 'Engineering Manager & Senior Full-Stack Developer with 10+ years of experience building web and mobile applications.',
+    url: '/about',
+    type: 'profile',
+    images: [{ url: '/main/profile.jpeg', width: 800, height: 800, alt: 'Zainal Arifin' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Zainal Arifin',
+    description: 'Engineering Manager & Senior Full-Stack Developer with 10+ years of experience.',
+    images: ['/main/profile.jpeg'],
+  },
+}
 
 export default function AboutPage() {
   const skills = [
@@ -99,18 +120,22 @@ export default function AboutPage() {
         </div>
 
         {/* Bio Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
           {/* Avatar */}
           <div className="flex justify-center lg:justify-start">
-            <div className="relative w-80 h-80 rounded-2xl overflow-hidden border-2 border-gray-800">
-              <div className="w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                <div className="text-8xl text-white font-bold">ZA</div>
-              </div>
+            <div className="relative w-64 h-64 rounded-2xl overflow-hidden border-2 border-gray-800">
+              <Image
+                src="/main/profile.jpeg"
+                alt="Zainal Arifin"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
 
           {/* Bio Text */}
-          <div className="space-y-6">
+          <div className="space-y-6 lg:col-span-2">
             <h2 className="text-3xl font-bold text-white mb-6">Hi, I&apos;m Zainal</h2>
 
             <div className="space-y-4 text-gray-300 text-lg leading-relaxed">

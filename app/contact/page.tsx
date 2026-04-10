@@ -1,33 +1,51 @@
+import type { Metadata } from 'next'
 import { Github, Linkedin, Mail, MapPin, Twitter } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Contact',
+  description: 'Get in touch with Zainal Arifin — open to collaboration, freelance projects, and engineering management opportunities.',
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    title: 'Contact Zainal Arifin',
+    description: 'Get in touch — open to collaboration, freelance projects, and engineering management opportunities.',
+    url: '/contact',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Contact Zainal Arifin',
+    description: 'Get in touch — open to collaboration, freelance projects, and engineering management opportunities.',
+  },
+}
 
 export default function ContactPage() {
   const contactMethods = [
     {
       icon: Mail,
       label: 'Email',
-      value: 'zainal.arifin@example.com',
-      href: 'mailto:zainal.arifin@example.com',
+      value: 'arifin.1602@gmail.com',
+      href: 'mailto:arifin.1602@gmail.com',
       description: 'Send me a direct message'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      value: '/in/zainalarifin',
-      href: 'https://linkedin.com/in/zainalarifin',
+      value: '/in/zainalar',
+      href: 'https://linkedin.com/in/zainalar',
       description: 'Connect with me professionally'
     },
     {
       icon: Github,
       label: 'GitHub',
-      value: '@zainalarifin',
-      href: 'https://github.com/zainalarifin',
+      value: '@zainalarifinid',
+      href: 'https://github.com/zainalarifinid',
       description: 'Check out my open source work'
     },
     {
       icon: Twitter,
       label: 'Twitter',
-      value: '@zainalarifin',
-      href: 'https://twitter.com/zainalarifin',
+      value: '@zainalarifin_id',
+      href: 'https://twitter.com/zainalarifin_id',
       description: 'Follow me for tech updates'
     }
   ]

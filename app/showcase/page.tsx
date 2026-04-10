@@ -1,5 +1,23 @@
+import type { Metadata } from 'next'
 import ProjectCard from '../../components/ui/ProjectCard'
 import { getAllProjects } from '../../utils/content'
+
+export const metadata: Metadata = {
+  title: 'Showcase',
+  description: 'A collection of projects and case studies — from micro-frontend architectures and real-time systems to mobile apps and enterprise solutions.',
+  alternates: { canonical: '/showcase' },
+  openGraph: {
+    title: 'Projects & Case Studies by Zainal Arifin',
+    description: 'A collection of projects and case studies — from micro-frontend architectures and real-time systems to mobile apps and enterprise solutions.',
+    url: '/showcase',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Projects & Case Studies by Zainal Arifin',
+    description: 'From micro-frontend architectures and real-time systems to mobile apps and enterprise solutions.',
+  },
+}
 
 export default async function ShowcasePage() {
   // Fetch all projects on the server side

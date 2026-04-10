@@ -1,19 +1,53 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Inter } from 'next/font/google'
 import '../styles/globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
+const SITE_URL = 'https://zainalarifinid.web.app'
+
 export const metadata: Metadata = {
-  title: 'Zainal Arifin - Software Developer',
-  description: 'Personal portfolio of Zainal Arifin, a software developer crafting robust back-ends and intuitive front-ends from Bandung, Indonesia.',
-  keywords: ['Zainal Arifin', 'Software Developer', 'Full Stack', 'Next.js', 'TypeScript', 'Bandung'],
-  authors: [{ name: 'Zainal Arifin' }],
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: 'Zainal Arifin - Engineering Manager & Full-Stack Developer',
+    template: '%s | Zainal Arifin',
+  },
+  description: 'Personal portfolio of Zainal Arifin, an Engineering Manager & Senior Full-Stack Developer with 10+ years of experience building web and mobile applications from Bandung, Indonesia.',
+  keywords: ['Zainal Arifin', 'Engineering Manager', 'Full-Stack Developer', 'Software Engineer', 'React', 'Next.js', 'TypeScript', 'Node.js', 'Bandung', 'Indonesia'],
+  authors: [{ name: 'Zainal Arifin', url: SITE_URL }],
+  creator: 'Zainal Arifin',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
   openGraph: {
-    title: 'Zainal Arifin - Software Developer',
-    description: 'Crafting robust back-ends and intuitive front-ends from Bandung, Indonesia.',
+    title: 'Zainal Arifin - Engineering Manager & Full-Stack Developer',
+    description: 'Engineering Manager & Senior Full-Stack Developer crafting scalable web and mobile applications from Bandung, Indonesia.',
+    url: SITE_URL,
+    siteName: 'Zainal Arifin',
+    locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/main/profile.jpeg',
+        width: 800,
+        height: 800,
+        alt: 'Zainal Arifin',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Zainal Arifin - Engineering Manager & Full-Stack Developer',
+    description: 'Engineering Manager & Senior Full-Stack Developer from Bandung, Indonesia.',
+    creator: '@zainalarifin_id',
+    images: ['/main/profile.jpeg'],
   },
 }
 
@@ -32,8 +66,8 @@ function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="text-xl font-bold text-white hover:text-blue-400 transition-colors">
-            ZA
+          <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+            <Image src="/icon.png" alt="Zainal Arifin" width={36} height={36} priority />
           </Link>
 
           {/* Navigation Links */}
