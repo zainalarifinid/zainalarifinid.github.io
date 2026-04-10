@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import ProjectCard from '../../components/ui/ProjectCard'
 import { getAllProjects } from '../../utils/content'
+import JsonLd from '../../components/JsonLd'
+import { eazypassSchema } from '../../lib/schemas/eazypass'
 
 export const metadata: Metadata = {
   title: 'Showcase',
@@ -25,6 +27,7 @@ export default async function ShowcasePage() {
 
   return (
     <div className="min-h-screen bg-black">
+      <JsonLd data={eazypassSchema} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-20">
         {/* Page Header */}
         <div className="text-center mb-16">
