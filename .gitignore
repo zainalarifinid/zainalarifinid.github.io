@@ -88,3 +88,8 @@ sw.*
 *.swp
 
 .firebase/
+
+# WordPress sync
+.wp-sync-state.json
+logs/
+.env.local
