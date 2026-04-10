@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { Inter } from 'next/font/google'
 import '../styles/globals.css'
@@ -66,8 +65,8 @@ function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <Image src="/icon.png" alt="Zainal Arifin" width={36} height={36} priority />
+          <Link href="/" className="text-xl font-bold text-white hover:text-blue-400 transition-colors">
+            ZA
           </Link>
 
           {/* Navigation Links */}
