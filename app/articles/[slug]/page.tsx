@@ -6,9 +6,9 @@ import remarkGfm from 'remark-gfm'
 import { getArticleBySlug, getAllArticleSlugs } from '../../../utils/content'
 
 interface ArticlePageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 // Generate static params for all articles
@@ -21,8 +21,9 @@ export async function generateStaticParams() {
 
 // Generate metadata for each article
 export async function generateMetadata({ params }: ArticlePageProps) {
-  const article = await getArticleBySlug(params.slug)
-  
+  const { slug } = await params
+  const article = await getArticleBySlug(slug)
+
   if (!article) {
     return {
       title: 'Article Not Found',
@@ -45,7 +46,8 @@ export async function generateMetadata({ params }: ArticlePageProps) {
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
-  const article = await getArticleBySlug(params.slug)
+  const { slug } = await params
+  const article = await getArticleBySlug(slug)
 
   if (!article) {
     notFound()
@@ -74,7 +76,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
             {article.frontMatter.title}
           </h1>
-          
+
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
             {article.frontMatter.description}
           </p>
@@ -91,7 +93,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 })}
               </time>
             </div>
-            
+
             <div className="flex items-center gap-2">
               <Clock size={16} />
               <span>{readingTime} min read</span>
@@ -174,8 +176,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 <em className="text-gray-200 italic">{children}</em>
               ),
               a: ({ href, children }) => (
-                <a 
-                  href={href} 
+                <a
+                  href={href}
                   className="text-blue-400 hover:text-blue-300 underline transition-colors duration-200"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -196,7 +198,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <p>Written by <span className="text-white font-medium">Zainal Arifin</span></p>
               <p className="text-sm">Software Developer based in Bandung, Indonesia</p>
             </div>
-            
+
             <div className="flex items-center gap-4">
               <Link
                 href="/articles"
