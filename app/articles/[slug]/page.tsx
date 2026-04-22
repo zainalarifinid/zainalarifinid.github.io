@@ -185,6 +185,38 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   {children}
                 </a>
               ),
+              table: ({ children }) => (
+                <div className="overflow-x-auto my-8">
+                  <table className="w-full border-collapse text-sm">
+                    {children}
+                  </table>
+                </div>
+              ),
+              thead: ({ children }) => (
+                <thead className="bg-gray-800 text-gray-100">
+                  {children}
+                </thead>
+              ),
+              tbody: ({ children }) => (
+                <tbody className="divide-y divide-gray-700">
+                  {children}
+                </tbody>
+              ),
+              tr: ({ children }) => (
+                <tr className="even:bg-gray-900 odd:bg-gray-950 hover:bg-gray-800 transition-colors duration-150">
+                  {children}
+                </tr>
+              ),
+              th: ({ children }) => (
+                <th className="px-4 py-3 text-left font-semibold text-gray-100 border border-gray-700 whitespace-nowrap">
+                  {children}
+                </th>
+              ),
+              td: ({ children }) => (
+                <td className="px-4 py-3 text-gray-300 border border-gray-700">
+                  {children}
+                </td>
+              ),
             }}
           >
             {article.content}
