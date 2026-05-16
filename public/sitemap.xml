@@ -103,6 +103,42 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://zainalarifin.id/articles/programming-fundamentals-variables-types-operators</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://zainalarifin.id/articles/programming-fundamentals-control-flow</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://zainalarifin.id/articles/programming-fundamentals-functions-recursion</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://zainalarifin.id/articles/programming-fundamentals-oop</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://zainalarifin.id/articles/programming-fundamentals-functional-programming</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://zainalarifin.id/articles/programming-fundamentals-error-handling</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://zainalarifin.id/articles/nextjs-14-modern-web-apps</loc>
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>

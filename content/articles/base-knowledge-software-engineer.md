@@ -55,12 +55,12 @@ def binary_search(arr, target):
 Pick at least one language and understand it deeply before jumping around.
 
 ### Core Concepts to Master
-- **Variables, Types, and Operators**
-- **Control Flow**: if/else, loops, switch
-- **Functions and Recursion**
-- **Object-Oriented Programming (OOP)**: classes, inheritance, encapsulation, polymorphism
-- **Functional Programming**: pure functions, immutability, higher-order functions
-- **Error Handling**: exceptions, try/catch, defensive coding
+- **[Variables, Types, and Operators](/articles/programming-fundamentals-variables-types-operators)** — how data is named, typed, and combined
+- **[Control Flow](/articles/programming-fundamentals-control-flow)**: if/else, loops, switch
+- **[Functions and Recursion](/articles/programming-fundamentals-functions-recursion)** — reusable logic and self-referential calls
+- **[Object-Oriented Programming (OOP)](/articles/programming-fundamentals-oop)**: classes, inheritance, encapsulation, polymorphism
+- **[Functional Programming](/articles/programming-fundamentals-functional-programming)**: pure functions, immutability, higher-order functions
+- **[Error Handling](/articles/programming-fundamentals-error-handling)**: exceptions, try/catch, defensive coding
 
 ### Recommended First Languages
 | Language | Best For |
