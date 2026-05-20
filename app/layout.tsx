@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Inter } from 'next/font/google'
 import '../styles/globals.css'
 import JsonLd from '../components/JsonLd'
+import GoogleAnalytics from '../components/GoogleAnalytics'
 import { personSchema } from '../lib/schemas/person'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -107,6 +108,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${inter.className} bg-black text-white min-h-screen`}>
+        <GoogleAnalytics />
         <JsonLd data={personSchema} />
         <Navigation />
         <main className="pt-16">
