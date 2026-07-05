@@ -29,6 +29,8 @@ jobs:
 
     - name: Build Next.js application
       run: npm run build
+      env:
+        NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
