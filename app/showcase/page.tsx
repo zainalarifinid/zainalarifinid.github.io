@@ -47,6 +47,7 @@ export default async function ShowcasePage() {
             {projects.map((project) => (
               <ProjectCard
                 key={project.slug}
+                slug={project.slug}
                 title={project.frontMatter.title}
                 description={project.frontMatter.description}
                 imageUrl={project.frontMatter.imageUrl}

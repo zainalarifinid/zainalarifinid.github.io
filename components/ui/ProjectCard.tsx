@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 interface ProjectCardProps {
+  slug: string
   title: string
   description: string
   imageUrl: string
@@ -15,6 +16,7 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({
+  slug,
   title,
   description,
   imageUrl,
@@ -72,9 +74,11 @@ export default function ProjectCard({
 
       {/* Project Content */}
       <div className="p-6">
-        <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors duration-200">
-          {title}
-        </h3>
+        <Link href={`/showcase/${slug}`}>
+          <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors duration-200">
+            {title}
+          </h3>
+        </Link>
 
         <p className="text-gray-400 mb-4 text-sm leading-relaxed">
           {description}

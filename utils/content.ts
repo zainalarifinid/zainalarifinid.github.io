@@ -76,6 +76,62 @@ export async function getFeaturedProjects(): Promise<Project[]> {
   return allProjects.slice(0, 3)
 }
 
+// Get a single project by slug
+export async function getProjectBySlug(slug: string): Promise<Project | null> {
+  try {
+    const projectsDirectory = path.join(process.cwd(), 'content/projects')
+    const fullPath = path.join(projectsDirectory, `${slug}.md`)
+
+    // Check if file exists
+    if (!fs.existsSync(fullPath)) {
+      // Try with .mdx extension
+      const mdxPath = path.join(projectsDirectory, `${slug}.mdx`)
+      if (!fs.existsSync(mdxPath)) {
+        return null
+      }
+      const fileContents = fs.readFileSync(mdxPath, 'utf8')
+      const { data, content } = matter(fileContents)
+
+      return {
+        slug,
+        frontMatter: data as ProjectFrontMatter,
+        content,
+      }
+    }
+
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
+    const { data, content } = matter(fileContents)
+
+    return {
+      slug,
+      frontMatter: data as ProjectFrontMatter,
+      content,
+    }
+  } catch (error) {
+    console.error('Error reading project:', error)
+    return null
+  }
+}
+
+// Get all project slugs for static generation
+export async function getAllProjectSlugs(): Promise<string[]> {
+  try {
+    const projectsDirectory = path.join(process.cwd(), 'content/projects')
+
+    if (!fs.existsSync(projectsDirectory)) {
+      return []
+    }
+
+    const fileNames = fs.readdirSync(projectsDirectory)
+    return fileNames
+      .filter((name) => name.endsWith('.md') || name.endsWith('.mdx'))
+      .map((name) => name.replace(/\.mdx?$/, ''))
+  } catch (error) {
+    console.error('Error reading project slugs:', error)
+    return []
+  }
+}
+
 // Get all articles from the content/articles directory (Server-side only)
 export async function getAllArticles(): Promise<Article[]> {
   try {

@@ -73,6 +73,7 @@ export default async function HomePage() {
               {featuredProjects.map((project) => (
                 <ProjectCard
                   key={project.slug}
+                  slug={project.slug}
                   title={project.frontMatter.title}
                   description={project.frontMatter.description}
                   imageUrl={project.frontMatter.imageUrl}
