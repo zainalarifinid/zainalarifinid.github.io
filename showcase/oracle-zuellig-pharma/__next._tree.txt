@@ -6,4 +6,4 @@
 :HL["/images/projects/oracle-zuellig-pharma-5.jpg","image"]
 :HL["/images/projects/oracle-zuellig-pharma-8.PNG","image"]
 :HL["/images/projects/oracle-zuellig-pharma-7.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"showcase","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"oracle-zuellig-pharma","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"5cJMAUQQFWUnnkRt38nk2"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"showcase","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"oracle-zuellig-pharma","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"Zwy__WnQ8yNu6SWgcVYHG"}

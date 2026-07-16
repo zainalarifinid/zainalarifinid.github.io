@@ -7,4 +7,4 @@
 :HL["/images/projects/infinitech.co.jp-adcum-2.png","image"]
 :HL["/images/projects/infinitech.co.jp-dprotectorum-4.png","image"]
 :HL["/images/projects/infinitech.co.jp-dprotectorum.jpg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"showcase","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"infinitech-school-systems","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"5cJMAUQQFWUnnkRt38nk2"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"showcase","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"infinitech-school-systems","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"Zwy__WnQ8yNu6SWgcVYHG"}
