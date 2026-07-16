@@ -29,27 +29,18 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
   openGraph: {
-    title: 'Zainal Arifin - Engineering Manager & Full-Stack Developer',
+    title: 'Zainal Arifin - Engineering Manager & Developer',
     description: 'Engineering Manager & Senior Full-Stack Developer crafting scalable web and mobile applications from Bandung, Indonesia.',
     url: SITE_URL,
     siteName: 'Zainal Arifin',
     locale: 'en_US',
     type: 'website',
-    images: [
-      {
-        url: '/main/profile.jpeg',
-        width: 800,
-        height: 800,
-        alt: 'Zainal Arifin',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zainal Arifin - Engineering Manager & Full-Stack Developer',
+    title: 'Zainal Arifin - Engineering Manager & Developer',
     description: 'Engineering Manager & Senior Full-Stack Developer from Bandung, Indonesia.',
     creator: '@zainalarifin_id',
-    images: ['/main/profile.jpeg'],
   },
 }
 

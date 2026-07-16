@@ -30,6 +30,32 @@
             "value": "max-age=31536000"
           }
         ]
+      },
+      {
+        "source": "/opengraph-image",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "image/png"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000"
+          }
+        ]
+      },
+      {
+        "source": "/twitter-image",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "image/png"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000"
+          }
+        ]
       }
     ]
   }
