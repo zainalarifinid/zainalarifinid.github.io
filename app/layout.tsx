@@ -8,15 +8,15 @@ import { personSchema } from '../lib/schemas/person'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const SITE_URL = 'https://zainalarifinid.web.app'
+const SITE_URL = 'https://zainalarifin.id'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Zainal Arifin - Engineering Manager & Full-Stack Developer',
+    default: 'Zainal Arifin - Engineering Manager & Developer',
     template: '%s | Zainal Arifin',
   },
-  description: 'Personal portfolio of Zainal Arifin, an Engineering Manager & Senior Full-Stack Developer with 10+ years of experience building web and mobile applications from Bandung, Indonesia.',
+  description: 'Portfolio of Zainal Arifin, an Engineering Manager & Senior Full-Stack Developer with 10+ years building web and mobile apps from Bandung, Indonesia.',
   keywords: ['Zainal Arifin', 'Engineering Manager', 'Full-Stack Developer', 'Software Engineer', 'React', 'Next.js', 'TypeScript', 'Node.js', 'Bandung', 'Indonesia'],
   authors: [{ name: 'Zainal Arifin', url: SITE_URL }],
   creator: 'Zainal Arifin',

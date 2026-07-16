@@ -2,7 +2,7 @@ export const personSchema: Record<string, unknown> = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Zainal Arifin',
-  url: 'https://zainalarifinid.web.app',
+  url: 'https://zainalarifin.id',
   jobTitle: ['Lead Developer', 'Engineering Manager'],
   sameAs: [
     'https://github.com/zainalarifinid',
