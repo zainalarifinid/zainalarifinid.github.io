@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ExternalLink, Github } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import TechIcon from '../TechIcon'
 
 interface ProjectCardProps {
   slug: string
@@ -89,8 +90,9 @@ export default function ProjectCard({
           {tags.map((tag, index) => (
             <span
               key={index}
-              className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-xs font-medium border border-gray-700"
+              className="inline-flex items-center gap-1.5 px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-xs font-medium border border-gray-700"
             >
+              <TechIcon tag={tag} size={13} />
               {tag}
             </span>
           ))}

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getProjectBySlug, getAllProjectSlugs } from '../../../utils/content'
 import MarkdownContent from '../../../components/MarkdownContent'
+import TechIcon from '../../../components/TechIcon'
 
 interface ProjectPageProps {
   params: Promise<{
@@ -84,8 +85,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 {project.frontMatter.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm font-medium border border-gray-700"
+                    className="inline-flex items-center gap-2 px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm font-medium border border-gray-700"
                   >
+                    <TechIcon tag={tag} size={15} />
                     {tag}
                   </span>
                 ))}

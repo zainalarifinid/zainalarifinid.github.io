@@ -3,6 +3,10 @@ import ProjectCard from '../../components/ui/ProjectCard'
 import { getAllProjects } from '../../utils/content'
 import JsonLd from '../../components/JsonLd'
 import { eazypassSchema } from '../../lib/schemas/eazypass'
+import TechIcon from '../../components/TechIcon'
+
+// Career start year used to compute "Years of Experience" below.
+const CAREER_START_YEAR = 2013
 
 export const metadata: Metadata = {
   title: 'Showcase',
@@ -24,6 +28,7 @@ export const metadata: Metadata = {
 export default async function ShowcasePage() {
   // Fetch all projects on the server side
   const projects = await getAllProjects()
+  const uniqueTags = Array.from(new Set(projects.flatMap((p) => p.frontMatter.tags))).sort()
 
   return (
     <div className="min-h-screen bg-black">
@@ -75,7 +80,7 @@ export default async function ShowcasePage() {
         {/* Stats Section */}
         {projects.length > 0 && (
           <div className="mt-20 pt-12 border-t border-gray-800">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-center max-w-md mx-auto mb-16">
               <div>
                 <div className="text-3xl font-bold text-blue-400 mb-2">
                   {projects.length}
@@ -87,20 +92,29 @@ export default async function ShowcasePage() {
 
               <div>
                 <div className="text-3xl font-bold text-blue-400 mb-2">
-                  {new Set(projects.flatMap(p => p.frontMatter.tags)).size}
-                </div>
-                <div className="text-gray-400">
-                  Technologies Used
-                </div>
-              </div>
-
-              <div>
-                <div className="text-3xl font-bold text-blue-400 mb-2">
-                  {new Date().getFullYear() - 2020}+
+                  {new Date().getFullYear() - CAREER_START_YEAR}+
                 </div>
                 <div className="text-gray-400">
                   Years of Experience
                 </div>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <div className="text-gray-400 mb-6">
+                Technologies Used
+              </div>
+              <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+                {uniqueTags.map((tag) => (
+                  <div
+                    key={tag}
+                    title={tag}
+                    className="flex items-center gap-2 px-3 py-2 bg-gray-900 border border-gray-800 rounded-lg text-sm text-gray-300"
+                  >
+                    <TechIcon tag={tag} size={18} />
+                    <span>{tag}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

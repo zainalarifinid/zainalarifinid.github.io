@@ -72,13 +72,31 @@ export default function MarkdownContent({ content }: MarkdownContentProps) {
             {children}
           </a>
         ),
-        img: ({ src, alt }) => (
-          <img
-            src={typeof src === 'string' ? src : undefined}
-            alt={alt}
-            className="rounded-lg border border-gray-800 my-8 w-full"
-          />
-        ),
+        img: ({ src, alt }) => {
+          const url = typeof src === 'string' ? src : undefined
+          const isVideo = url ? /\.(mp4|webm|mov)$/i.test(url) : false
+
+          if (isVideo) {
+            return (
+              <video
+                src={url}
+                controls
+                playsInline
+                className="rounded-lg border border-gray-800 my-8 w-full"
+              >
+                Your browser does not support the video tag.
+              </video>
+            )
+          }
+
+          return (
+            <img
+              src={url}
+              alt={alt}
+              className="rounded-lg border border-gray-800 my-8 w-full"
+            />
+          )
+        },
         table: ({ children }) => (
           <div className="overflow-x-auto my-8">
             <table className="w-full border-collapse text-sm">
