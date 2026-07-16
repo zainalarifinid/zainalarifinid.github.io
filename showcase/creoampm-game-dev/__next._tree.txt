@@ -12,4 +12,4 @@
 :HL["/images/projects/creoampm-global-game-jam.jpg","image"]
 :HL["/images/projects/creoampm-barli-team-member.jpg","image"]
 :HL["/images/projects/creoampm-game-dev-gathering.jpg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"showcase","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"creoampm-game-dev","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"LFN3GIYpERAGVKfc1oSGk"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"showcase","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"creoampm-game-dev","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"5cJMAUQQFWUnnkRt38nk2"}

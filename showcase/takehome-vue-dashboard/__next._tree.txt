@@ -3,4 +3,4 @@
 :HL["/images/projects/takehome-vue-login.png","image"]
 :HL["/images/projects/takehome-vue-dashboard.png","image"]
 :HL["/images/projects/takehome-vue-students-table.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"showcase","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"takehome-vue-dashboard","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"LFN3GIYpERAGVKfc1oSGk"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"showcase","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"takehome-vue-dashboard","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"5cJMAUQQFWUnnkRt38nk2"}
