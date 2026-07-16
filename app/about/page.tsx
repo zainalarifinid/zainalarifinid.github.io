@@ -11,13 +11,11 @@ export const metadata: Metadata = {
     description: 'Engineering Manager & Senior Full-Stack Developer with 10+ years of experience building web and mobile applications.',
     url: '/about',
     type: 'profile',
-    images: [{ url: '/main/profile.jpeg', width: 800, height: 800, alt: 'Zainal Arifin' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'About Zainal Arifin',
     description: 'Engineering Manager & Senior Full-Stack Developer with 10+ years of experience.',
-    images: ['/main/profile.jpeg'],
   },
 }
 
