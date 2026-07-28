@@ -80,6 +80,7 @@ export default async function HomePage() {
                   tags={project.frontMatter.tags}
                   liveUrl={project.frontMatter.liveUrl}
                   sourceUrl={project.frontMatter.sourceUrl}
+                  featured={project.frontMatter.featured}
                 />
               ))}
             </div>
