@@ -11,6 +11,7 @@ export interface ProjectFrontMatter {
   tags: string[]
   liveUrl: string
   sourceUrl: string
+  featured?: boolean
 }
 
 export interface Project {
@@ -70,10 +71,11 @@ export async function getAllProjects(): Promise<Project[]> {
   }
 }
 
-// Get featured projects (first 3)
+// Get featured projects (flagged via frontMatter.featured, falling back to newest 3)
 export async function getFeaturedProjects(): Promise<Project[]> {
   const allProjects = await getAllProjects()
-  return allProjects.slice(0, 3)
+  const flagged = allProjects.filter((project) => project.frontMatter.featured)
+  return flagged.length > 0 ? flagged : allProjects.slice(0, 3)
 }
 
 // Get a single project by slug

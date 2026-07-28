@@ -27,7 +27,13 @@ export const metadata: Metadata = {
 
 export default async function ShowcasePage() {
   // Fetch all projects on the server side
-  const projects = await getAllProjects()
+  const allProjects = await getAllProjects()
+  // Featured projects first, otherwise preserve the newest-first order from getAllProjects
+  const projects = [...allProjects].sort((a, b) => {
+    const aFeatured = a.frontMatter.featured ? 1 : 0
+    const bFeatured = b.frontMatter.featured ? 1 : 0
+    return bFeatured - aFeatured
+  })
   const uniqueTags = Array.from(new Set(projects.flatMap((p) => p.frontMatter.tags))).sort()
 
   return (
@@ -59,6 +65,7 @@ export default async function ShowcasePage() {
                 tags={project.frontMatter.tags}
                 liveUrl={project.frontMatter.liveUrl}
                 sourceUrl={project.frontMatter.sourceUrl}
+                featured={project.frontMatter.featured}
               />
             ))}
           </div>

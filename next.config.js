@@ -9,6 +9,7 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  allowedDevOrigins: ['zainal-thinkpad'],
   // Compression
   compress: true,
   // Turbopack config (Next.js 16 default)

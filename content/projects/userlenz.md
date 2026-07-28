@@ -6,6 +6,7 @@ imageUrl: '/images/projects/userlenz-homepage.png'
 tags: ['Next.js', 'Firebase', 'Firestore', 'Cloud Functions', 'ElevenLabs', 'rrweb', 'Claude API', 'Figma API']
 liveUrl: 'https://userlenz-dev.web.app/'
 sourceUrl: 'https://userlenz-dev.web.app/'
+featured: true
 ---
 
 # Userlenz

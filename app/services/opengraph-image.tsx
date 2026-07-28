@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 import { ogImageJsx } from '../../lib/og-image'
 
-export const alt = 'Mentorship with Zainal Arifin'
+export const alt = 'Work With Me — Zainal Arifin'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 export const dynamic = 'force-static'
@@ -9,11 +9,11 @@ export const dynamic = 'force-static'
 export default function Image() {
   return new ImageResponse(
     ogImageJsx({
-      badge: '1-on-1 mentoring',
-      title: 'Mentorship with Zainal Arifin',
+      badge: 'Freelance, consulting & mentorship',
+      title: 'Let’s Build, Scale, and Solve Together',
       description:
-        '1-on-1 mentoring programs from an Engineering Manager with 10+ years of hiring and mentoring experience.',
-      cta: 'Book a Session',
+        'Practical solutions and guidance from an Engineering Manager with 10+ years building, scaling, and shipping software with high-performing teams.',
+      cta: "Let's Talk",
     }),
     { ...size }
   )

@@ -14,6 +14,7 @@ interface ProjectCardProps {
   tags: string[]
   liveUrl: string
   sourceUrl: string
+  featured?: boolean
 }
 
 export default function ProjectCard({
@@ -24,6 +25,7 @@ export default function ProjectCard({
   tags,
   liveUrl,
   sourceUrl,
+  featured,
 }: ProjectCardProps) {
   return (
     <motion.div
@@ -41,6 +43,12 @@ export default function ProjectCard({
           fill
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
+
+        {featured && (
+          <span className="absolute top-3 left-3 z-10 px-2.5 py-1 bg-blue-600 text-white text-xs font-medium rounded-full">
+            Featured
+          </span>
+        )}
 
         {/* Overlay with buttons that appear on hover */}
         <motion.div

@@ -6,6 +6,7 @@ imageUrl: '/images/projects/oracle-zuellig-pharma.jpg'
 tags: ['Oracle CPQ', 'BigMachines', 'BML', 'HTML', 'CSS', 'JavaScript', 'jQuery', 'SAP Integration']
 liveUrl: ''
 sourceUrl: ''
+featured: true
 ---
 
 # Oracle — Zuellig Pharma CPQ & Web Platforms

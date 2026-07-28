@@ -18,8 +18,9 @@ import {
   SiGooglecloud,
   SiElevenlabs,
   SiClaude,
+  SiVite,
 } from 'react-icons/si'
-import { Database, Webhook, Radio, Hash, Video, Code2, LucideIcon } from 'lucide-react'
+import { Database, Webhook, Radio, Hash, Video, Code2, Gamepad2, LucideIcon } from 'lucide-react'
 import { IconType } from 'react-icons'
 
 interface TechIconEntry {
@@ -55,6 +56,8 @@ const TECH_ICON_MAP: Record<string, TechIconEntry> = {
   'tailwind css': { icon: SiTailwindcss, color: '#38BDF8' },
   postgresql: { icon: SiPostgresql, color: '#4169E1' },
   github: { icon: SiGithub, color: '#FFFFFF' },
+  vite: { icon: SiVite, color: '#646CFF' },
+  phaser: { icon: Gamepad2, color: '#8BC53F' },
 }
 
 const FALLBACK: TechIconEntry = { icon: Code2, color: '#9CA3AF' }

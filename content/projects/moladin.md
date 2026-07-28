@@ -6,6 +6,7 @@ imageUrl: '/images/projects/moladin-homepage.png'
 tags: ['WordPress', 'PHP', 'jQuery', 'JavaScript', 'MySQL']
 liveUrl: 'https://moladin.com/'
 sourceUrl: 'https://moladin.com/'
+featured: true
 ---
 
 # Moladin

@@ -50,7 +50,7 @@ function Navigation() {
     { href: '/', label: 'Home' },
     { href: '/showcase', label: 'Showcase' },
     { href: '/articles', label: 'Articles' },
-    { href: '/mentorship', label: 'Mentorship' },
+    { href: '/services', label: 'Work With Me' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ]

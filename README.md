@@ -332,6 +332,7 @@
    tags: ["Next.js", "TypeScript"]
    liveUrl: "https://example.com"
    sourceUrl: "https://github.com/..."
+   featured: true
    ---
    ```
 

@@ -6,6 +6,18 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "redirects": [
+      {
+        "source": "/mentorship",
+        "destination": "/services/",
+        "type": 301
+      },
+      {
+        "source": "/mentorship/**",
+        "destination": "/services/",
+        "type": 301
+      }
+    ],
     "rewrites": [
       {
         "source": "**",
