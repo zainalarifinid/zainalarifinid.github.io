@@ -2,22 +2,22 @@
 title: 'Eazy Pass - Client Management App'
 date: '2026-07-28'
 description: 'An internal Client Management App built for my own web dev agency, Eazy Pass Solution — a lead pipeline, project delivery tracking, and AI-drafted client proposals (Google Gemini) in one multi-tenant-ready NestJS/Prisma + React app.'
-imageUrl: 'https://placehold.co/600x400/1e293b/64748b?text=Eazy+Pass+CRM'
+imageUrl: 'https://placehold.co/600x400/1e293b/64748b?text=Eazy+Pass+Client+Management'
 tags: ['NestJS', 'Prisma', 'PostgreSQL', 'React', 'Vite', 'TypeScript', 'Tailwind CSS', 'Google Gemini']
 liveUrl: 'https://client-management.zainalarifin.id/'
 sourceUrl: ''
 featured: false
 ---
 
-# Eazy Pass CRM
+# Eazy Pass - Client Management App
 
-Eazy Pass Solution is my own web development agency, and before this existed, its sales pipeline and active client work lived across spreadsheets and chat threads. I built Eazy Pass CRM to replace that: a single internal tool for tracking leads through a sales pipeline, turning won leads into tracked delivery projects, and drafting client proposals with AI assistance — end to end, from the Postgres schema to the UI.
+Eazy Pass Solution is my own web development agency, and before this existed, its sales pipeline and active client work lived across spreadsheets and chat threads. I built this Client Management App to replace that: a single internal tool for tracking leads through a sales pipeline, turning won leads into tracked delivery projects, and drafting client proposals with AI assistance — end to end, from the Postgres schema to the UI.
 
 Try it live: [client-management.zainalarifin.id](https://client-management.zainalarifin.id/) — demo login `demo@zainalarifin.id` / `passworddemo123`.
 
 ## Project Overview
 
-It's easy for a small agency to lose track of follow-ups, slow to produce a consistent client proposal, and hard to see pipeline health at a glance when everything is informal. Eazy Pass CRM gives the business owner (and any teammates added to the organization) one place to see every lead and its stage, convert a won lead straight into a delivery project with its own timeline and tasks, generate a professional client-ready proposal in minutes instead of hours, and get a fast read on pipeline value and delivery risk without digging through records.
+It's easy for a small agency to lose track of follow-ups, slow to produce a consistent client proposal, and hard to see pipeline health at a glance when everything is informal. The app gives the business owner (and any teammates added to the organization) one place to see every lead and its stage, convert a won lead straight into a delivery project with its own timeline and tasks, generate a professional client-ready proposal in minutes instead of hours, and get a fast read on pipeline value and delivery risk without digging through records.
 
 The system is built multi-tenant from day one — every record is scoped to an organization — even though today it runs for one real tenant plus a seeded demo tenant.
 
