@@ -1,4 +1,4 @@
-:HL["/_next/static/chunks/0f8~x31jyej6n.css","style"]
+:HL["/_next/static/chunks/0qb1r4_k-u3ee.css","style"]
 :HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/images/projects/kkp-kapiv2-1.PNG","image"]
 :HL["/images/projects/kkp-sipalka.jpg","image"]
@@ -7,4 +7,4 @@
 :HL["/images/projects/kkp-dashboard-pipp-3.PNG","image"]
 :HL["/images/projects/kkp-pipp-book.PNG","image"]
 :HL["/images/projects/kkp-web-pipp.jpg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"showcase","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"kkp-fisheries-systems","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"M2eei5M0iR8apt1gQRo-q"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"showcase","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"kkp-fisheries-systems","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"igjURsuAVFHVD_9gDEnJV"}
