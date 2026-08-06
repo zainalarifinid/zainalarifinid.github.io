@@ -25,6 +25,14 @@
   "overrides": {
     "glob": "^10.5.0"
   },
+  "browserslist": [
+    "chrome >= 91",
+    "edge >= 91",
+    "firefox >= 90",
+    "safari >= 15",
+    "not dead",
+    "not ie <= 11"
+  ],
   "devDependencies": {
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^13.4.0",

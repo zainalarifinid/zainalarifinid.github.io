@@ -102,7 +102,7 @@ export default function RootLayout({
         <GoogleAnalytics />
         <JsonLd data={personSchema} />
         <Navigation />
-        <main className="pt-16">
+        <main className="pt-16 pb-20 md:pb-0">
           {children}
         </main>
 
@@ -115,6 +115,22 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+
+        {/* Sticky mobile contact bar */}
+        <div className="fixed bottom-0 inset-x-0 z-40 bg-gray-950/95 backdrop-blur-md border-t border-gray-800 p-3 flex gap-3 md:hidden">
+          <Link
+            href="/services"
+            className="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg text-sm font-medium transition-colors duration-200"
+          >
+            Work With Me
+          </Link>
+          <a
+            href="mailto:arifin.1602@gmail.com"
+            className="flex-1 text-center border border-gray-700 hover:border-gray-600 text-white py-3 rounded-lg text-sm font-medium transition-colors duration-200"
+          >
+            Email Me
+          </a>
+        </div>
       </body>
     </html>
   )

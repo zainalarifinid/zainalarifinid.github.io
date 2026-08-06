@@ -2,9 +2,10 @@ import { notFound } from 'next/navigation'
 import { ArrowLeft, ExternalLink, Github, Tag } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getProjectBySlug, getAllProjectSlugs } from '../../../utils/content'
+import { getProjectBySlug, getAllProjectSlugs, getProjectVersions } from '../../../utils/content'
 import MarkdownContent from '../../../components/MarkdownContent'
 import TechIcon from '../../../components/TechIcon'
+import ProjectVersionTabs from '../../../components/ui/ProjectVersionTabs'
 
 interface ProjectPageProps {
   params: Promise<{
@@ -52,6 +53,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!project) {
     notFound()
   }
+
+  const versions = await getProjectVersions(slug)
+  const tabs = [
+    {
+      label: 'Current Version',
+      date: project.frontMatter.date,
+      node: <MarkdownContent content={project.content} />,
+    },
+    ...versions.map((version) => ({
+      label: version.label,
+      date: version.date,
+      node: <MarkdownContent content={version.content} />,
+    })),
+  ]
 
   return (
     <div className="min-h-screen bg-black">
@@ -134,9 +149,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </header>
 
         {/* Project Content */}
-        <article className="prose prose-invert prose-lg max-w-none">
-          <MarkdownContent content={project.content} />
-        </article>
+        {tabs.length > 1 ? (
+          <ProjectVersionTabs tabs={tabs} />
+        ) : (
+          <article className="prose prose-invert prose-lg max-w-none">
+            <MarkdownContent content={project.content} />
+          </article>
+        )}
 
         {/* Project Footer */}
         <footer className="mt-16 pt-8 border-t border-gray-800">

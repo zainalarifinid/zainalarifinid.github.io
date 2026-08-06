@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation'
-import { ArrowLeft, Calendar, Clock, Tag } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Calendar, Clock, Tag } from 'lucide-react'
 import Link from 'next/link'
-import { getArticleBySlug, getAllArticleSlugs } from '../../../utils/content'
+import Image from 'next/image'
+import { getArticleBySlug, getAllArticleSlugs, getRelatedProject } from '../../../utils/content'
 import MarkdownContent from '../../../components/MarkdownContent'
 
 interface ArticlePageProps {
@@ -51,6 +52,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   if (!article) {
     notFound()
   }
+
+  const relatedProject = await getRelatedProject(article.frontMatter.tags)
 
   // Calculate reading time (rough estimate: 200 words per minute)
   const wordCount = article.content.split(/\s+/).length
@@ -121,6 +124,33 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <article className="prose prose-invert prose-lg max-w-none">
           <MarkdownContent content={article.content} />
         </article>
+
+        {/* Related Project */}
+        {relatedProject && (
+          <Link
+            href={`/showcase/${relatedProject.slug}`}
+            className="group flex items-center gap-4 mt-12 bg-gray-900 rounded-xl p-4 border border-gray-800 hover:border-blue-600/50 transition-all duration-300"
+          >
+            <div className="relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden">
+              <Image
+                src={relatedProject.frontMatter.imageUrl}
+                alt={relatedProject.frontMatter.title}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm text-gray-400 mb-1">See it in practice</p>
+              <p className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors duration-200 truncate">
+                {relatedProject.frontMatter.title}
+              </p>
+            </div>
+            <ArrowRight
+              size={20}
+              className="text-gray-400 group-hover:text-blue-400 group-hover:translate-x-1 transition-all duration-200 flex-shrink-0"
+            />
+          </Link>
+        )}
 
         {/* Article Footer */}
         <footer className="mt-16 pt-8 border-t border-gray-800">

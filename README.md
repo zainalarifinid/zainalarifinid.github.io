@@ -336,6 +336,21 @@
    ---
    ```
 
+   **Versioning a project write-up** — if you're substantially rewriting an existing
+   `content/projects/<slug>.md` (new features, changed scope, etc.) and want the old
+   write-up to stay browsable on the site as a "V1"/"V2" tab, snapshot it *before* editing:
+
+   ```bash
+   mkdir -p content/projects/<slug>/versions
+   cp content/projects/<slug>.md content/projects/<slug>/versions/v1.md
+   ```
+
+   Then edit `content/projects/<slug>.md` as normal. The detail page automatically shows a
+   "Current Version / V1 / V2 / ..." tab switcher once at least one snapshot exists (see
+   `getProjectVersions` in `utils/content.ts`); projects with no `versions/` folder are
+   unaffected. Bump the number (`v2.md`, `v3.md`, ...) each time you snapshot again — newer
+   numbers show up first, right after "Current Version".
+
    ### 🖼️ **Image Guidelines**
    - **Formats**: Prefer WebP when possible, fallback to JPEG
    - **Sizing**: Provide exact dimensions for better CLS

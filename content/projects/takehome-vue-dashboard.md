@@ -10,9 +10,11 @@ sourceUrl: 'https://visiongroup-vuedashboard.zainalarifin.id/'
 
 # Vue.js Admin Dashboard — Technical Assessment
 
-As part of a Tech Lead hiring process, I was given a take-home assessment: clone, build, and run a pre-built Vue.js admin frontend against an Express.js backend template, complete the database migration/seed step, and get the login flow working end to end.
+## The Situation
 
-## The Assignment
+As part of a Tech Lead hiring process, I was given a take-home assessment.
+
+## The Task
 
 - Clone, build, and run an Express.js backend from a provided template repo
 - Migrate and seed the database
@@ -20,7 +22,7 @@ As part of a Tech Lead hiring process, I was given a take-home assessment: clone
 - Configure environment files so the frontend authenticates against the backend
 - Confirm a successful login lands on a working dashboard
 
-## What I Did
+## The Action
 
 - Set up both repos on a Linux-based deployment environment rather than just running locally, so the reviewer could access a live, working instance instead of relying on a screen-share
 - Resolved environment configuration between the frontend and backend (API base URL, auth/session handling) so the login flow actually authenticates end to end
@@ -35,7 +37,7 @@ As part of a Tech Lead hiring process, I was given a take-home assessment: clone
 
 ![Seeded data table with pagination and CRUD actions](/images/projects/takehome-vue-students-table.png)
 
-## Why It's Worth Sharing
+## The Result
 
 This wasn't a from-scratch build — the value here was less "wrote every line" and more "got two separate unfamiliar codebases talking to each other, correctly migrated the data layer, and shipped it somewhere reviewable within the requested turnaround," which is a reasonable proxy for the kind of ramp-up work a Tech Lead role actually involves.
 

@@ -11,13 +11,17 @@ featured: true
 
 # Userlenz
 
-Userlenz started as a friend's idea for a startup: make user research something a small team could run on its own, without hiring a researcher or scheduling a round of manual interviews. I built the product end to end — the tech stack, the MVP, the demo environment, and every decision about how data gets stored and turned into a report.
+## The Situation
 
-## Project Overview
+Userlenz started as a friend's idea for a startup: make user research something a small team could run on its own, without hiring a researcher or scheduling a round of manual interviews. Most teams know they should talk to users more often, but running a proper research session — writing a discussion guide, moderating it, taking notes, then synthesizing everything into something the team can act on — takes time most small teams don't have. Userlenz automates the parts of that process that don't need a human in the room, while still capturing real conversational responses instead of a static form.
 
-Most teams know they should talk to users more often, but running a proper research session — writing a discussion guide, moderating it, taking notes, then synthesizing everything into something the team can act on — takes time most small teams don't have. Userlenz automates the parts of that process that don't need a human in the room, while still capturing real conversational responses instead of a static form.
+## The Task
 
-## How It Works
+This wasn't a co-founding role — the idea and the startup are my friend's. My job was turning that idea into a working product: choosing the stack, building the MVP, standing up a demo environment, and making every technical call about how the feature set actually gets implemented — down to how each entity is modeled in the database and how raw responses get turned into a report.
+
+## The Action
+
+**How it works:**
 
 1. **Prompt in** — a team writes a plain-language research question (e.g. "why are users dropping off during onboarding?").
 2. **Workflow generation** — Userlenz turns that prompt into a workflow canvas mixing task steps (e.g. a "Website Test" against a Figma prototype or a live site, with a defined goal screen) and structured questions (multiple choice, opinion scale, open text).
@@ -26,9 +30,7 @@ Most teams know they should talk to users more often, but running a proper resea
 5. **Session capture** — in parallel with the voice conversation and task tracking, `rrweb` records the participant's on-screen activity, so the session data includes what they said, what they clicked, and whether/when they reached the goal.
 6. **Report generation** — once a session wraps, the transcript, task-completion results, and captured activity are processed through the Claude API, which synthesizes them into a structured report the team can actually read and act on, instead of a pile of raw transcripts.
 
-## Testing Surfaces: Figma Prototypes & Live Websites
-
-A task step in the workflow can target either surface:
+**Testing surfaces: Figma prototypes & live websites.** A task step in the workflow can target either surface:
 
 - **Figma prototypes** — Userlenz embeds the prototype directly in the session via Figma's embed API. The participant clicks through it like they would in Figma's own preview mode, and Userlenz tracks which frame they land on.
 - **Live websites** — since Userlenz can't instrument an arbitrary third-party site on its own, the site owner adds a small snippet to their site's `<head>`:
@@ -48,11 +50,7 @@ A task step in the workflow can target either surface:
 
 Either way, the participant's experience and the goal-detection logic stay consistent — only the underlying surface being tracked changes.
 
-## My Role
-
-This wasn't a co-founding role — the idea and the startup are my friend's. My job was turning that idea into a working product: choosing the stack, building the MVP, standing up a demo environment, and making every technical call about how the feature set actually gets implemented — down to how each entity is modeled in the database and how raw responses get turned into a report.
-
-## Technical Architecture
+**Technical architecture:**
 
 - **Frontend**: Next.js, deployed as a static/SPA build to Firebase Hosting (the `userlenz-dev.web.app` domain).
 - **Auth & Data**: Firebase Auth for user accounts, Firestore as the primary data store.
@@ -63,13 +61,16 @@ This wasn't a co-founding role — the idea and the startup are my friend's. My 
 - **Session recording**: rrweb captures and replays on-screen activity during a session, so a report isn't just "what they said" but "what they were looking at when they said it."
 - **Report synthesis**: Claude API, given the session transcript, task-completion results, and captured activity, generates the final report.
 
-## Data Model & Reporting Pipeline
+**Data model & reporting pipeline:** one of the harder design decisions was how to model a "research session" so that a prompt, its generated workflow, a participant's spoken responses, their task-completion results (Figma or live-site), and their recorded screen activity all stay linked to each other in Firestore — without over-normalizing the data to the point where generating a report meant stitching together a dozen queries. The collections are structured around a session as the central document, with responses, task/goal-screen results, and rrweb capture references nested or linked underneath it, so the report-generation function can pull everything it needs for a session in a single pass before handing it to Claude.
 
-One of the harder design decisions was how to model a "research session" so that a prompt, its generated workflow, a participant's spoken responses, their task-completion results (Figma or live-site), and their recorded screen activity all stay linked to each other in Firestore — without over-normalizing the data to the point where generating a report meant stitching together a dozen queries. The collections are structured around a session as the central document, with responses, task/goal-screen results, and rrweb capture references nested or linked underneath it, so the report-generation function can pull everything it needs for a session in a single pass before handing it to Claude.
+**Building the MVP:** because this is a friend's startup idea rather than an established product, scope mattered as much as implementation. I prioritized the smallest end-to-end slice that could prove the concept — prompt in, session out, report generated — before adding anything else.
 
-## Building the MVP and Demo Environment
+**Challenges and decisions:**
 
-Because this is a friend's startup idea rather than an established product, scope mattered as much as implementation. I prioritized the smallest end-to-end slice that could prove the concept — prompt in, session out, report generated — before adding anything else, and built a separate demo environment so the product could be shown to prospective users without touching real session data.
+- **Keeping AI-moderated sessions on-topic**: the generated workflow has to constrain the voice agent enough that it stays focused on the research question, while still leaving room for it to follow up naturally.
+- **Bridging into live third-party sites**: unlike a Figma prototype, which Userlenz can embed on its own, a live website needs the site owner's cooperation — the `UserLenzBridge` snippet and domain allowlist exist so a test session can safely reach into a real production site without turning into an open tracking hole.
+- **Syncing multiple data streams**: the voice session, the task/goal-screen tracking, and the rrweb recording all happen in parallel and need to be correlated afterward so the report can reference "what the user did" and "whether they completed the task" at the right point in "what they said."
+- **Report quality**: getting the Claude API to produce a report that's genuinely useful to a non-researcher, rather than a restated transcript, took iteration on how session data is framed in the prompt sent to it.
 
 ## Screenshots
 
@@ -77,12 +78,9 @@ Because this is a friend's startup idea rather than an established product, scop
 
 ![Installing the live-site tracking snippet from the workflow canvas](/images/projects/userlenz-plugin.png)
 
-## Challenges and Decisions
+## The Result
 
-- **Keeping AI-moderated sessions on-topic**: the generated workflow has to constrain the voice agent enough that it stays focused on the research question, while still leaving room for it to follow up naturally.
-- **Bridging into live third-party sites**: unlike a Figma prototype, which Userlenz can embed on its own, a live website needs the site owner's cooperation — the `UserLenzBridge` snippet and domain allowlist exist so a test session can safely reach into a real production site without turning into an open tracking hole.
-- **Syncing multiple data streams**: the voice session, the task/goal-screen tracking, and the rrweb recording all happen in parallel and need to be correlated afterward so the report can reference "what the user did" and "whether they completed the task" at the right point in "what they said."
-- **Report quality**: getting the Claude API to produce a report that's genuinely useful to a non-researcher, rather than a restated transcript, took iteration on how session data is framed in the prompt sent to it.
+I built a separate demo environment so the product could be shown to prospective users without touching real session data — live today at [userlenz-dev.web.app](https://userlenz-dev.web.app/).
 
 ## Future Improvements
 

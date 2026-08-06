@@ -20,6 +20,12 @@ export interface Project {
   content: string
 }
 
+export interface ProjectVersion {
+  label: string
+  date?: string
+  content: string
+}
+
 export interface ArticleFrontMatter {
   title: string
   date: string
@@ -78,6 +84,34 @@ export async function getFeaturedProjects(): Promise<Project[]> {
   return flagged.length > 0 ? flagged : allProjects.slice(0, 3)
 }
 
+// Find the showcase project whose tags overlap most with the given tags
+// (e.g. an article's tags), so article readers can jump to a project that
+// demonstrates the same tech in practice. Returns null if nothing overlaps.
+export async function getRelatedProject(tags: string[] = []): Promise<Project | null> {
+  if (tags.length === 0) {
+    return null
+  }
+
+  const allProjects = await getAllProjects()
+  const normalizedTags = new Set(tags.map((tag) => tag.toLowerCase()))
+
+  let bestMatch: Project | null = null
+  let bestScore = 0
+
+  for (const project of allProjects) {
+    const score = project.frontMatter.tags.filter((tag) =>
+      normalizedTags.has(tag.toLowerCase())
+    ).length
+
+    if (score > bestScore) {
+      bestScore = score
+      bestMatch = project
+    }
+  }
+
+  return bestMatch
+}
+
 // Get a single project by slug
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
   try {
@@ -130,6 +164,41 @@ export async function getAllProjectSlugs(): Promise<string[]> {
       .map((name) => name.replace(/\.mdx?$/, ''))
   } catch (error) {
     console.error('Error reading project slugs:', error)
+    return []
+  }
+}
+
+// Get archived write-up snapshots for a project, e.g. content/projects/<slug>/versions/v1.md,
+// v2.md. Returns [] if the project has no versions folder. Sorted newest-snapshot-first.
+export async function getProjectVersions(slug: string): Promise<ProjectVersion[]> {
+  try {
+    const versionsDirectory = path.join(process.cwd(), 'content/projects', slug, 'versions')
+
+    if (!fs.existsSync(versionsDirectory)) {
+      return []
+    }
+
+    const fileNames = fs.readdirSync(versionsDirectory)
+    return fileNames
+      .filter((name) => name.endsWith('.md') || name.endsWith('.mdx'))
+      .map((name) => {
+        const match = name.match(/^v(\d+)\.mdx?$/i)
+        const versionNumber = match ? parseInt(match[1], 10) : 0
+        const fullPath = path.join(versionsDirectory, name)
+        const fileContents = fs.readFileSync(fullPath, 'utf8')
+        const { data, content } = matter(fileContents)
+
+        return {
+          versionNumber,
+          label: (data.label as string | undefined) ?? `V${versionNumber}`,
+          date: data.date as string | undefined,
+          content,
+        }
+      })
+      .sort((a, b) => b.versionNumber - a.versionNumber)
+      .map(({ label, date, content }) => ({ label, date, content }))
+  } catch (error) {
+    console.error('Error reading project versions:', error)
     return []
   }
 }

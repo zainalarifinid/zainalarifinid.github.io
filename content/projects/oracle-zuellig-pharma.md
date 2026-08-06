@@ -11,9 +11,17 @@ featured: true
 
 # Oracle — Zuellig Pharma CPQ & Web Platforms
 
-Working as a contractor on an Oracle-led implementation team, I built and maintained the UI and order flow for Zuellig Pharma's CPQ (Configure, Price, Quote) system, alongside UI work for two other Oracle-related web properties: LifePlus and the Asian Development Bank website.
+## The Situation
 
-## CPQ Framework for Zuellig Pharma
+I worked as a contractor on an Oracle-led implementation team building and maintaining Zuellig Pharma's CPQ (Configure, Price, Quote) system, alongside UI work for two other Oracle-related web properties: LifePlus and the Asian Development Bank website.
+
+## The Task
+
+My focus was UI and order-flow work: building out the CPQ experience as it rolled out to each new country, building the LifePlus customer portal UI, and contributing UI work for the Asian Development Bank site.
+
+## The Action
+
+### CPQ Framework for Zuellig Pharma
 
 Zuellig Pharma runs its ordering process — customer search, material/product selection, cart, order submission, and approval — through Oracle CPQ Cloud (built on the BigMachines platform). The project started in Singapore and expanded into Taiwan, the Philippines, Malaysia, Vietnam, and Thailand, each configured as its own business unit (`ZP_SG`, `ZP_TW`, `ZP_PH`, `ZP_MY`, `ZP_VT`, `ZP_TH`) inside the same platform.
 
@@ -31,20 +39,16 @@ Orders ultimately integrate with SAP for fulfillment, so part of the UI work inc
 
 ![Taiwan customer search in Chinese, part of the localized rollout](/images/projects/oracle-zuellig-pharma-8.PNG)
 
-## LifePlus
+### LifePlus
 
 LifePlus is a customer-facing ordering portal for Zuellig Pharma's healthcare and pharmacy customers (hospitals, dental centres, dispensaries) to view and track their orders — separate from the internal CPQ tooling above. I was responsible for its UI.
 
 ![LifePlus customer order portal](/images/projects/oracle-zuellig-pharma-7.png)
 
-## Asian Development Bank Website
+### Asian Development Bank Website
 
 I was also responsible for UI work on the Asian Development Bank website, a separate project alongside the Zuellig Pharma work.
 
-## My Role
-
-I worked as a contractor on an Oracle-led implementation team, focused on UI and order-flow work: building out the CPQ experience as it rolled out to each new country, building the LifePlus customer portal UI, and contributing UI work for the Asian Development Bank site.
-
-## Looking Back
+## The Result
 
 This project was my first real exposure to enterprise CPQ tooling and a genuine multi-country rollout — the same order flow had to keep working as it was configured, localized, and re-configured for one country after another, all while staying integrated with a backend system (SAP) I didn't control.

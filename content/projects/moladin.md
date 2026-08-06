@@ -11,13 +11,17 @@ featured: true
 
 # Moladin
 
-Moladin is an Indonesian car marketplace — new and used car search, financing (Pembiayaan), a used-car inspection service (MoInspeksi), rentals (Sewa Milik), and editorial content, all in one platform. From November 2025 to March 2026 I worked full-time on the team rebuilding the site, focused on the car-discovery experience: the search page, brand-specific search pages, and the car model detail page.
+## The Situation
 
-## My Role
+Moladin is an Indonesian car marketplace — new and used car search, financing (Pembiayaan), a used-car inspection service (MoInspeksi), rentals (Sewa Milik), and editorial content, all in one platform. From November 2025 to March 2026, I was a full-time contributor on the team rebuilding the site.
 
-I was a full-time contributor on the team building Moladin's new website over a five-month engagement (Nov 2025 – Mar 2026), responsible for three of the site's core page types end to end — from WordPress data structure to the PHP templates and jQuery interactivity that render them.
+## The Task
 
-## Cari Mobil (Search Page)
+I was responsible for three of the site's core page types end to end — from WordPress data structure to the PHP templates and jQuery interactivity that render them: the car-discovery search page, brand-specific search pages, and the car model detail page.
+
+## The Action
+
+### Cari Mobil (Search Page)
 
 The main car-search page lets visitors browse all available cars with:
 - A breadcrumb and hero header ("Cari Mobil Baru") introducing the search experience
@@ -26,11 +30,11 @@ The main car-search page lets visitors browse all available cars with:
 - A MoInspeksi promo widget cross-selling the inspection service alongside search
 - A result grid of car cards, each showing a price range and a "Lihat Harga" call to action into that model's detail page
 
-## Brand-Specific Search Page
+### Brand-Specific Search Page
 
 Each brand (e.g. "Cari Mobil Toyota") gets its own search page rather than just a filtered view — with an ad slot above the fold, a dynamically generated intro paragraph summarizing that brand's lineup (model count, body styles like coupe/double-cabin/hatchback pulled from structured brand data), a vehicle-type filter (MPV, SUV, Hatchback, …), and the same filtered result grid as the main search page.
 
-## Detail Model Page
+### Detail Model Page
 
 The model detail page (e.g. Suzuki Fronx) is the most information-dense of the three:
 - Breadcrumb showing category > brand > model
@@ -40,13 +44,13 @@ The model detail page (e.g. Suzuki Fronx) is the most information-dense of the t
 - An editorial "Ulasan Moladin" review block
 - A "Pajak mulai dari" tax-estimate widget
 
-## Technical Implementation
+### Technical Implementation
 
 - **WordPress** as the CMS/backend — car specs, brand info, pricing, and editorial reviews are modeled as custom post types and taxonomies rather than hardcoded per page.
 - **PHP templates** per page type (search, brand search, model detail) pull from those post types/taxonomies to render each page server-side.
 - **jQuery** drives all client-side interactivity: brand/type filtering, sorting, gallery image switching, expand/collapse sections ("Lihat Lebih Banyak"), and dynamic ad slot placement — no JS framework, since the rest of the site is a traditional WordPress theme.
 
-## Challenges and Decisions
+### Challenges and Decisions
 
 - **Dynamic brand copy**: the brand-page intro paragraph had to be generated from structured data (model counts, body styles) rather than hand-written per brand, since Moladin lists dozens of brands.
 - **Filtering without a framework**: keeping brand/type filtering and sorting responsive using PHP + jQuery instead of a client-side framework required careful use of AJAX partial reloads rather than full page refreshes.
@@ -59,6 +63,10 @@ The model detail page (e.g. Suzuki Fronx) is the most information-dense of the t
 ![Moladin Toyota brand search page](/images/projects/moladin-brand-page.png)
 
 ![Moladin Suzuki Fronx detail page](/images/projects/moladin-detail-page.png)
+
+## The Result
+
+By the end of the five-month engagement (Nov 2025–Mar 2026), all three page types — search, brand-specific search, and model detail — were built and shipped to production, live today at [moladin.com](https://moladin.com/) as the car-discovery experience for Moladin's rebuilt site.
 
 ## Future Improvements
 

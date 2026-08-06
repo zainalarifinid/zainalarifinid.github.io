@@ -10,15 +10,19 @@ sourceUrl: ''
 
 # Creo AMPM — Early Game Development (2014–2015)
 
+## The Situation
+
 Before I moved into web development, I spent time building games in Unity3D as part of a small team called **Creo AMPM**. Between 2014 and 2015 we prototyped several 2D games together and took part in Indonesia's early game-jam and indie dev community — Global Game Jam Bandung and GDG Prime 2015.
 
 ![Creo AMPM team logo](/images/projects/creoampm-logo-studio.jpg)
 
-## My Role
+## The Task
 
 I worked as a programmer on the team, writing gameplay code in C# — character controllers, physics-based movement, and game state/level logic — while teammates handled art and design.
 
-## Lightbringer
+## The Action
+
+### Lightbringer
 
 A 2D pixel-art platformer where the player carries a torch through dark environments, lighting braziers and navigating obstacles by sight and light radius.
 
@@ -30,7 +34,7 @@ A 2D pixel-art platformer where the player carries a torch through dark environm
 
 ![Pitching Lightbringer to the room, game running live on the projector](/images/projects/creoampm-light-bringer-presentation.jpg)
 
-## Blow 'n Up!
+### Blow 'n Up!
 
 A vacuum-mechanic platformer for Android starring a small astronaut-robot character navigating asteroid terrain in space. The core ability lets the player suck in nearby items and blow them back out — and that same suck/blow force doubles as the jump mechanic, blasting air downward to launch the character upward. Internally the project was called "WindBender," built around a custom `WindBenderController` and level generator script.
 
@@ -42,7 +46,7 @@ A vacuum-mechanic platformer for Android starring a small astronaut-robot charac
 
 ![Unity editor mid-development on Blow 'n Up! (internal project name: WindBender)](/images/projects/creoampm-bax-2.jpg)
 
-## Community Involvement
+### Community Involvement
 
 Alongside prototyping, the team took part in **Global Game Jam Bandung** (23–25 January 2015) and **GDG Prime 2015** (Game Dev Gathering) — events connecting Indonesia's early mobile and indie game dev scene, sponsored by names like Unity, Intel, and Microsoft. My teammate **Barli** was part of the crew at Global Game Jam as well.
 
@@ -52,6 +56,6 @@ Alongside prototyping, the team took part in **Global Game Jam Bandung** (23–2
 
 ![At GDG Prime 2015 — Game Dev Gathering](/images/projects/creoampm-game-dev-gathering.jpg)
 
-## Looking Back
+## The Result
 
 None of these games shipped commercially, but this was where I picked up fundamentals that carried into my later engineering career — structuring gameplay state, working within a small team, and shipping something playable under a hard deadline (a game jam is basically a 48-hour hackathon). Mostly, though, it's a fun snapshot of where things started.

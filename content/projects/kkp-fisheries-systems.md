@@ -10,9 +10,17 @@ sourceUrl: ''
 
 # KKP — Fisheries Ministry Systems (2015–2017)
 
+## The Situation
+
 From 2015 to 2017 I worked through a vendor/contractor company building web systems for Indonesia's Ministry of Marine Affairs and Fisheries (Kementerian Kelautan dan Perikanan, KKP) — spanning two different divisions' needs: a fishing-vessel registration system, and a national fisheries port information platform.
 
-## Sistem Pendaftaran Kapal — KAPI & Sipalka
+## The Task
+
+As a developer with the vendor company, I was responsible for contributing across both the vessel-registration and PIPP applications — server-side logic in CodeIgniter and Laravel, MySQL schema and queries, and the jQuery-driven frontends typical of that generation of government systems.
+
+## The Action
+
+### Sistem Pendaftaran Kapal — KAPI & Sipalka
 
 KAPI was the ministry's original fishing-vessel registration system, tracking a vessel's paperwork (called a "Pendok") from intake through verification and issuance of its official vessel registration book (Buku Kapal Perikanan / BKP) — built on CodeIgniter with jQuery on the frontend.
 
@@ -24,7 +32,7 @@ Sipalka (internally labeled "PKP" in its own UI) was the next-generation replace
 
 ![Sipalka (PKP) — scan/upload queue for a registration loket](/images/projects/kkp-sipalka-2.PNG)
 
-## PIPP — Pusat Informasi Pelabuhan Perikanan
+### PIPP — Pusat Informasi Pelabuhan Perikanan
 
 A separate division needed a system for managing Indonesia's fishing ports nationally — PIPP (Fisheries Port Information Center). This split into two applications, both built on Laravel with jQuery and MySQL:
 
@@ -39,10 +47,6 @@ A separate division needed a system for managing Indonesia's fishing ports natio
 
 ![PIPP public website — national port map and fish production data](/images/projects/kkp-web-pipp.jpg)
 
-## My Role
-
-I worked as a developer through the vendor company contracted to build and maintain these systems, contributing across both the vessel-registration and PIPP applications — server-side logic in CodeIgniter and Laravel, MySQL schema and queries, and the jQuery-driven frontends typical of that generation of government systems.
-
-## Looking Back
+## The Result
 
 These were some of the first large-scale production systems I worked on — real government workflows with real operational data (thousands of vessel registrations, 1,400+ ports tracked), built for divisions that depended on them daily. It was also an early, hands-on look at a legacy CodeIgniter → Laravel migration, a pattern I'd see repeated later in my career.

@@ -44,6 +44,15 @@
         ]
       },
       {
+        "source": "**/*.@(woff|woff2|ttf|otf)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000, immutable"
+          }
+        ]
+      },
+      {
         "source": "**/opengraph-image",
         "headers": [
           {

@@ -11,17 +11,19 @@ featured: false
 
 # Eazy Pass - Client Management App
 
-Eazy Pass Solution is my own web development agency, and before this existed, its sales pipeline and active client work lived across spreadsheets and chat threads. I built this Client Management App to replace that: a single internal tool for tracking leads through a sales pipeline, turning won leads into tracked delivery projects, and drafting client proposals with AI assistance — end to end, from the Postgres schema to the UI.
+## The Situation
+
+Eazy Pass Solution is my own web development agency, and before this existed, its sales pipeline and active client work lived across spreadsheets and chat threads. It's easy for a small agency to lose track of follow-ups, slow to produce a consistent client proposal, and hard to see pipeline health at a glance when everything is informal.
 
 Try it live: [client-management.zainalarifin.id](https://client-management.zainalarifin.id/) — demo login `demo@zainalarifin.id` / `passworddemo123`.
 
-## Project Overview
+## The Task
 
-It's easy for a small agency to lose track of follow-ups, slow to produce a consistent client proposal, and hard to see pipeline health at a glance when everything is informal. The app gives the business owner (and any teammates added to the organization) one place to see every lead and its stage, convert a won lead straight into a delivery project with its own timeline and tasks, generate a professional client-ready proposal in minutes instead of hours, and get a fast read on pipeline value and delivery risk without digging through records.
+This is my own product for my own agency — I made every call: the stack, the data model, the multi-tenancy approach, and which AI features were worth building first. The goal was to give the business owner (and any teammates added to the organization) one place to see every lead and its stage, convert a won lead straight into a delivery project with its own timeline and tasks, generate a professional client-ready proposal in minutes instead of hours, and get a fast read on pipeline value and delivery risk without digging through records.
 
-The system is built multi-tenant from day one — every record is scoped to an organization — even though today it runs for one real tenant plus a seeded demo tenant.
+## The Action
 
-## Core Features
+**Core features:**
 
 - **Lead pipeline (Kanban)** — a 7-column board (New → Contacted → Qualified → Proposal Sent → Negotiation → Won / Lost) with drag-and-drop status changes; winning a lead auto-creates a linked project.
 - **Project delivery tracking** — each project gets a Gantt-style timeline, tasks with their own timeline grid, milestones, risks (likelihood/impact/mitigation/owner), and stakeholders.
@@ -31,11 +33,7 @@ The system is built multi-tenant from day one — every record is scoped to an o
 - **AI monthly stakeholder report** — an on-demand, plain-text executive summary of deal flow, win rate, top opportunities, and delivery risk, generated from the organization's live data.
 - **Automated follow-up scheduling** — setting a lead's next-follow-up date queues a delayed BullMQ job that fires an SSE event.
 
-## My Role
-
-This is my own product for my own agency — I made every call: the stack, the data model, the multi-tenancy approach, and which AI features were worth building first. It's also a living system rather than a one-off build; the PRD/TRD docs I keep alongside the code track what's shipped, what's an intentional "coming soon" placeholder, and what's next, so the tool's own documentation stays honest about its current state instead of overclaiming.
-
-## Technical Architecture
+**Technical architecture:**
 
 - **Backend**: NestJS, modules mirroring the domain (leads, projects, tasks, milestones, risks, stakeholders, interactions, ai, dashboard, follow-up, auth, activity-log). Prisma ORM against PostgreSQL, JWT auth, BullMQ/Redis for the follow-up queue.
 - **Frontend**: React + Vite + TypeScript, Tailwind CSS with hand-rolled shadcn-style primitives on CSS variables (so theming is a token swap), Tiptap for the proposal rich-text editor, Context API for auth/theme.
@@ -43,11 +41,15 @@ This is my own product for my own agency — I made every call: the stack, the d
 - **AI provider**: Google Gemini via raw REST calls (no SDK dependency) — all calls are server-side, the frontend never talks to Gemini directly.
 - **Deployment**: Docker Compose for backend/frontend/Postgres/Redis.
 
-## Challenges and Decisions
+**Challenges and decisions:**
 
 - **Structured AI output over free text**: proposal generation asks Gemini for a typed JSON object rather than prose to parse, so the rendered pricing table and milestone list are real HTML, not reformatted text.
 - **Multi-tenancy from the start**: scoping every table to an organization from day one, even with a single real tenant today, so adding a second client doesn't mean a migration later.
 - **Being honest about what's not built**: a few sidebar entries (granular permissions, a full activity log, a template management page) are deliberately shown as "coming soon" rather than hidden or faked, so the app's own navigation doesn't misrepresent what actually works yet.
+
+## The Result
+
+Today the app runs in production for one real tenant — my own agency — plus a seeded demo tenant for review, live at [client-management.zainalarifin.id](https://client-management.zainalarifin.id/). It's also a living system rather than a one-off build: the PRD/TRD docs I keep alongside the code track what's shipped, what's an intentional "coming soon" placeholder, and what's next, so the tool's own documentation stays honest about its current state instead of overclaiming.
 
 ## Future Improvements
 

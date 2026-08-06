@@ -49,36 +49,6 @@ export default function ProjectCard({
             Featured
           </span>
         )}
-
-        {/* Overlay with buttons that appear on hover */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileHover={{ opacity: 1 }}
-          className="absolute inset-0 bg-black/60 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        >
-          {liveUrl && (
-            <Link
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium"
-            >
-              <ExternalLink size={16} />
-              Live Demo
-            </Link>
-          )}
-          {sourceUrl && (
-            <Link
-              href={sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium"
-            >
-              <Github size={16} />
-              Source Code
-            </Link>
-          )}
-        </motion.div>
       </div>
 
       {/* Project Content */}
@@ -94,7 +64,7 @@ export default function ProjectCard({
         </p>
 
         {/* Technology Tags */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 mb-4">
           {tags.map((tag, index) => (
             <span
               key={index}
@@ -105,6 +75,34 @@ export default function ProjectCard({
             </span>
           ))}
         </div>
+
+        {/* Always-visible CTAs (no hover dependency, so they work on touch devices) */}
+        {(liveUrl || sourceUrl) && (
+          <div className="flex gap-2">
+            {liveUrl && (
+              <Link
+                href={liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg text-xs font-medium transition-colors duration-200"
+              >
+                <ExternalLink size={14} />
+                Live Demo
+              </Link>
+            )}
+            {sourceUrl && (
+              <Link
+                href={sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-1.5 bg-gray-800 hover:bg-gray-700 text-white px-3 py-2 rounded-lg text-xs font-medium transition-colors duration-200"
+              >
+                <Github size={14} />
+                Source Code
+              </Link>
+            )}
+          </div>
+        )}
       </div>
     </motion.div>
   )

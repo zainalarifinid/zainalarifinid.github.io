@@ -51,6 +51,14 @@ export default async function HomePage() {
                 <FileText size={20} />
                 Read My Articles
               </Link>
+
+              <Link
+                href="/services"
+                className="group bg-transparent border-2 border-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 text-lg"
+              >
+                Work With Me
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-200" />
+              </Link>
             </div>
           </div>
         </div>
@@ -174,6 +182,25 @@ export default async function HomePage() {
               <ArrowRight size={18} />
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Closing CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-900/10 via-black to-purple-900/10 border-t border-gray-800">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Have a project in mind?
+          </h2>
+          <p className="text-gray-400 mb-8 text-lg">
+            I&apos;m currently open for freelance work, technical consulting, and mentorship.
+          </p>
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-medium transition-all duration-200 text-lg"
+          >
+            See How I Can Help
+            <ArrowRight size={20} />
+          </Link>
         </div>
       </section>
     </div>
