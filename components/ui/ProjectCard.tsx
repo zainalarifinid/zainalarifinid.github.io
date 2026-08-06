@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { ExternalLink, Github } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -28,7 +28,8 @@ export default function ProjectCard({
   featured,
 }: ProjectCardProps) {
   return (
-    <motion.div
+    <LazyMotion features={domAnimation} strict>
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -104,6 +105,7 @@ export default function ProjectCard({
           </div>
         )}
       </div>
-    </motion.div>
+    </m.div>
+    </LazyMotion>
   )
 }
