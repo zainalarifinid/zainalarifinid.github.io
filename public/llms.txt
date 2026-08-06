@@ -1,0 +1,24 @@
+# Zainal Arifin
+
+> Portfolio of Zainal Arifin, an Engineering Manager & Senior Full-Stack Developer with 10+ years building web and mobile apps from Bandung, Indonesia.
+
+Zainal writes about software engineering fundamentals (data structures, algorithms, programming concepts) and documents real client and personal projects — from micro-frontend architectures and AI-assisted tools to enterprise CPQ platforms and mobile games.
+
+## Pages
+
+- [Showcase](https://zainalarifin.id/showcase/): Project case studies — client work, freelance builds, and personal products.
+- [Articles](https://zainalarifin.id/articles/): Writing on algorithms, data structures, and programming fundamentals.
+- [Work With Me](https://zainalarifin.id/services/): Services offered and how to engage Zainal for freelance or contract work.
+- [About](https://zainalarifin.id/about/): Background, experience, and career history.
+- [Contact](https://zainalarifin.id/contact/): How to get in touch.
+
+## Featured Projects
+
+- [Eazy Pass - Client Management App](https://zainalarifin.id/showcase/eazypass-client-management/): Internal CRM for Zainal's own agency — lead pipeline, project delivery tracking, and AI-drafted client proposals.
+- [Userlenz](https://zainalarifin.id/showcase/userlenz/): An AI-moderated user research platform — voice-agent-run sessions against Figma prototypes or live sites, with automatic report generation.
+- [Moladin](https://zainalarifin.id/showcase/moladin/): Car-discovery pages (search, brand listing, model detail) for Moladin's WordPress-based marketplace site.
+- [Oracle — Zuellig Pharma CPQ & Web Platforms](https://zainalarifin.id/showcase/oracle-zuellig-pharma/): UI and order flow for a multi-country Oracle CPQ implementation.
+
+## Optional
+
+- [Sitemap](https://zainalarifin.id/sitemap.xml)

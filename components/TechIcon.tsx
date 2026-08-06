@@ -74,5 +74,7 @@ interface TechIconProps {
 
 export default function TechIcon({ tag, size = 16, className = '' }: TechIconProps) {
   const { icon: Icon, color } = getTechIcon(tag)
-  return <Icon size={size} className={className} style={{ color }} />
+  // Decorative: always rendered next to the visible tech name, so it's hidden
+  // from the accessibility tree rather than given a redundant accessible name.
+  return <Icon size={size} className={className} style={{ color }} aria-hidden="true" focusable="false" />
 }
